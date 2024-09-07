@@ -1,8 +1,7 @@
 import { cn } from "@/lib/utils";
-import { CircleUserRound, Home, House, Video } from "lucide-react";
+import { CircleUserRound, House, Video } from "lucide-react";
 import Link from "next/link";
-import React, { ForwardRefExoticComponent } from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import React from "react";
 
 function Sidebar() {
   return (
