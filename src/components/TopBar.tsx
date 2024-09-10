@@ -16,7 +16,7 @@ import Link from "next/link";
 
 function TopBar() {
   return (
-    <div className="flex flex-row items-center justify-between bg-zinc-100 h-[70px] p-3">
+    <div className="flex flex-row items-center justify-between h-[70px] p-3">
       <div className="">
         <h1 className="bg-blue-400 text-white text-2xl font-bold rounded-3xl border border-black p-2 text-center ">
           RyanTube
@@ -27,15 +27,15 @@ function TopBar() {
       </div>
       <div className=" flex items-center md:gap-3 lg:gap-8 lg:mr-8">
         <DropdownMenu>
-          <Button
-            variant="secondary"
-            size="icon"
-            className="overflow-hidden rounded-full shadow-lg  hover:bg-zinc-200"
-          >
-            <Link href={"/"}>
+          <Link href={"/upload"}>
+            <Button
+              variant="secondary"
+              size="icon"
+              className="overflow-hidden rounded-full shadow-lg "
+            >
               <UploadIcon />
-            </Link>
-          </Button>
+            </Button>
+          </Link>
           <DropdownMenuTrigger asChild>
             <Button
               variant="outline"

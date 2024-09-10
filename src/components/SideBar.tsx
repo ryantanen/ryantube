@@ -1,34 +1,40 @@
+"use client";
 import { cn } from "@/lib/utils";
 import { CircleUserRound, House, Video } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { usePathname } from "next/navigation";
 
 function Sidebar() {
+  const pathname = usePathname() || "";
   return (
-    <div className="bg-zinc-100 h-full">
+    <div className="bg-background h-full">
       <div className="lg:hidden">
         <nav className="p-3 grid gap-2 text-lg font-medium">
           <Link
-            href="#"
-            className="rounded-sm p-1 flex items-center gap-2 text-lg font-semibold transition-all hover:bg-slate-300"
+            href="/home"
+            className={cn(
+              "rounded-sm p-1 flex items-center gap-2 text-lg font-semibold transition-all hover:bg-zinc-300",
+              ["/", "/home"].includes(pathname) ? "bg-zinc-600 text-white" : ""
+            )}
           >
-            <div className="flex gap-1 w-full">
+            <div className="flex gap-1 w-full items-center">
               <House className="h-6 w-6" />
             </div>
           </Link>
           <Link
-            href="#"
-            className=" rounded-sm p-1 flex items-center gap-2 text-lg font-semibold transition-all hover:bg-slate-300"
+            href="/subscriptions"
+            className=" rounded-sm p-1 flex items-center gap-2 text-lg font-semibold transition-all hover:bg-zinc-300"
           >
-            <div className="flex gap-1 w-full">
+            <div className="flex gap-1 w-full items-center">
               <Video className="h-6 w-6" />
             </div>
           </Link>
           <Link
-            href="#"
-            className="rounded-sm p-1 flex items-center gap-2 text-lg font-semibold transition-all hover:bg-slate-300"
+            href="/me/channel"
+            className="rounded-sm p-1 flex items-center gap-2 text-lg font-semibold transition-all hover:bg-zinc-300"
           >
-            <div className="flex gap-1 w-full">
+            <div className="flex gap-1 w-full items-center">
               <CircleUserRound className="h-6 w-6" />
             </div>
           </Link>
@@ -36,32 +42,36 @@ function Sidebar() {
       </div>
 
       <div className={cn("hidden", "lg:flex flex-col")}>
-        <nav className="p-3 grid gap-2 text-lg font-medium">
+        <nav className="p-3 grid gap-2 text-lg font-medium text-black">
           <Link
-            href="#"
-            className="rounded-sm p-1 flex items-center gap-2 text-lg font-semibold transition-all hover:bg-slate-300"
+            href="/"
+            className={cn(
+              "rounded-sm p-1 flex items-center gap-2 text-lg font-semibold transition-all hover:bg-zinc-300",
+              ["/", "/home"].includes(pathname)
+                ? "bg-zinc-600 text-white hover:bg-zinc-800"
+                : ""
+            )}
           >
-            <div className="flex gap-1 w-full">
+            <div className="flex gap-1 w-full items-center">
               <House className="h-6 w-6" />
-
               <span className="font-normal">Home</span>
             </div>
           </Link>
           <Link
-            href="#"
-            className=" rounded-sm p-1 flex items-center gap-2 text-lg font-semibold transition-all hover:bg-slate-300"
+            href="/subscriptions"
+            className=" rounded-sm p-1 flex items-center gap-2 text-lg font-semibold transition-all hover:bg-zinc-300"
           >
-            <div className="flex gap-1 w-full">
+            <div className="flex gap-1 w-full items-center">
               <Video className="h-6 w-6" />
 
               <span className="font-normal">Subscriptions</span>
             </div>
           </Link>
           <Link
-            href="#"
-            className="rounded-sm p-1 flex items-center gap-2 text-lg font-semibold transition-all hover:bg-slate-300"
+            href="/me/channel"
+            className="rounded-sm p-1 flex items-center gap-2 text-lg font-semibold transition-all hover:bg-zinc-300"
           >
-            <div className="flex gap-1 w-full">
+            <div className="flex gap-1 w-full items-center">
               <CircleUserRound className="h-6 w-6" />
 
               <span className="font-normal">Your Channel</span>
